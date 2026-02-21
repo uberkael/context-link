@@ -1,5 +1,7 @@
 # Context Link (VSCode Extension)
 
+[![VS Code Marketplace](https://img.shields.io/visual-studio-marketplace/v/UberKaeL.context-link?label=VS%20Code%20Marketplace)](https://marketplace.visualstudio.com/items?itemName=UberKaeL.context-link)
+
 ![Context Link Icon](icon.png)
 
 Simple VSCode extension to:
@@ -55,6 +57,11 @@ Check the error handling in @src/utils/parser#L45-60
 The AI assistant will understand the file path and line references, making it easier to discuss specific code sections.
 
 ## Release Notes
+
+### 0.1.0
+
+- Published to VS Code Marketplace
+- Added repository configuration
 
 ### 0.0.1
 
