@@ -15,6 +15,7 @@ function activate(context) {
 		const selection = editor.selection;
 		const config = vscode.workspace.getConfiguration('contextLink');
 		const format = config.get('format') || 'claude';
+		const showNotification = config.get('showNotification') || false;
 
 		const startLine = selection.start.line + 1;
 		const endLine = selection.end.line + 1;
@@ -33,7 +34,9 @@ function activate(context) {
 		}
 
 		await vscode.env.clipboard.writeText(contextLink);
-		vscode.window.showInformationMessage(`Copied: ${contextLink}`);
+		if (showNotification) {
+			vscode.window.showInformationMessage(`Copied: ${contextLink}`);
+		}
 	});
 
 	context.subscriptions.push(disposable);

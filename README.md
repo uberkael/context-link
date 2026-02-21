@@ -5,6 +5,7 @@
 ![Context Link Icon](icon.png)
 
 Simple VSCode extension to:
+
 Copy to the clipboard **file paths with line references** to use as context with AI assistants like **Claude**,  **OpenCode** etc.
 
 ## Features
@@ -30,11 +31,12 @@ Copy to the clipboard **file paths with line references** to use as context with
 
 ## Extension Settings
 
-This extension contributes the following setting:
+This extension contributes the following settings:
 
 - `contextLink.format`: Output format for the context link
   - `claude` (default): Claude format with `@` prefix and `#L` for lines
   - `opencode`: OpenCode format with `:` for line references
+- `contextLink.showNotification`: Show a notification when the context link is copied (default: `false`)
 
 ## Keyboard Shortcuts
 
@@ -57,6 +59,10 @@ Check the error handling in @src/utils/parser#L45-60
 The AI assistant will understand the file path and line references, making it easier to discuss specific code sections.
 
 ## Release Notes
+
+### 0.2.0
+
+- Added `showNotification` setting to control toast visibility (off by default)
 
 ### 0.1.0
 
