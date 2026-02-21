@@ -1,7 +1,7 @@
 {
   "name": "context-link",
   "displayName": "Context Link",
-  "description": "Copy file path with line references as @path/file#N-M format for sharing code context with AI assistants like Claude, OpenCode etc",
+  "description": "Copy file path with line references in Claude (@path/file#L10-20) or OpenCode (path/file:10-20) format for sharing code context with AI assistants",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.109.0"
@@ -12,6 +12,21 @@
   "activationEvents": [],
   "main": "./extension.js",
   "contributes": {
+    "configuration": {
+      "title": "Context Link",
+      "properties": {
+        "contextLink.format": {
+          "type": "string",
+          "default": "claude",
+          "enum": ["claude", "opencode"],
+          "enumDescriptions": [
+            "Claude format: @path/file#L10-20",
+            "OpenCode format: path/file:10-20"
+          ],
+          "description": "Output format for the context link"
+        }
+      }
+    },
     "commands": [{
       "command": "context-link.copyContext",
       "title": "Copy Context Link"
