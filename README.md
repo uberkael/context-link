@@ -1,65 +1,62 @@
-# context-link README
+# Context Link
 
-This is the README for your extension "context-link". After writing up a brief description, we recommend including the following sections.
+Copy file paths with line references to share code context with AI assistants like Claude and OpenCode.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- Copy file path with line references in one keystroke
+- Support for both Claude and OpenCode formats
+- Works with selections or entire files
+- Context menu integration
 
-For example if there is an image subfolder under your extension project workspace:
+## Usage
 
-\!\[feature X\]\(images/feature-x.png\)
+1. Open a file in VS Code
+2. Select lines (optional)
+3. Press `Ctrl+Alt+U` (Windows/Linux) or `Cmd+Alt+U` (macOS)
+4. The context link is copied to clipboard
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+### Output Formats
 
-## Requirements
-
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+| Format       | No Selection  | Single Line        | Line Range            |
+|--------------|---------------|--------------------|-----------------------|
+| **Claude**   | `@path/file`  | `@path/file#L10`   | `@path/file#L10-20`   |
+| **OpenCode** | `@path/file`  | `path/file:10`     | `path/file:10-20`     |
 
 ## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+This extension contributes the following setting:
 
-For example:
+- `contextLink.format`: Output format for the context link
+  - `claude` (default): Claude format with `@` prefix and `#L` for lines
+  - `opencode`: OpenCode format with `:` for line references
 
-This extension contributes the following settings:
+## Keyboard Shortcuts
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+| Command             | Windows/Linux | macOS        |
+|---------------------|---------------|--------------|
+| Copy Context Link   | `Ctrl+Alt+U`  | `Cmd+Alt+U`  |
 
-## Known Issues
+## Context Menu
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+Right-click in the editor and select "Copy Context Link" from the context menu.
+
+## Use with AI Assistants
+
+Paste the copied link into your AI assistant to provide context:
+
+```markdown
+Check the error handling in @src/utils/parser#L45-60
+```
+
+The AI assistant will understand the file path and line references, making it easier to discuss specific code sections.
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
+### 0.0.1
 
-### 1.0.0
+Initial release:
 
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+- Copy context links with keyboard shortcut
+- Support for Claude and OpenCode formats
+- Context menu integration
