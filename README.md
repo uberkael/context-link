@@ -60,26 +60,3 @@ Check the error handling in @src/utils/parser#L45-60
 ```
 
 The AI assistant will understand the file path and line references, making it easier to discuss specific code sections.
-
-## Release Notes
-
-### 0.2.2
-
-- Added `pathType` setting to choose between relative and absolute paths
-
-### 0.2.0
-
-- Added `showNotification` setting to control toast visibility (off by default)
-
-### 0.1.0
-
-- Published to VS Code Marketplace
-- Added repository configuration
-
-### 0.0.1
-
-Initial release:
-
-- Copy context links with keyboard shortcut
-- Support for Claude and OpenCode formats
-- Context menu integration
