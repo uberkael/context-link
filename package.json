@@ -23,6 +23,11 @@
         "group": "9_cutcopypaste"
       }]
     },
+    "keybindings": [{
+      "command": "context-link.copyContext",
+      "key": "ctrl+alt+u",
+      "mac": "cmd+alt+u",
+      "when": "editorTextFocus"
     }]
   },
   "scripts": {
