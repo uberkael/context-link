@@ -4,6 +4,14 @@
   "description": "Copy file path with line references in Claude (@path/file#L10-20) or OpenCode (path/file:10-20) format for sharing code context with AI assistants",
   "icon": "icon.png",
   "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/uberkael/context-link.git"
+  },
+  "bugs": {
+    "url": "https://github.com/uberkael/context-link/issues"
+  },
+  "homepage": "https://github.com/uberkael/context-link#readme",
   "engines": {
     "vscode": "^1.109.0"
   },
@@ -19,7 +27,10 @@
         "contextLink.format": {
           "type": "string",
           "default": "claude",
-          "enum": ["claude", "opencode"],
+          "enum": [
+            "claude",
+            "opencode"
+          ],
           "enumDescriptions": [
             "Claude format: @path/file#L10-20",
             "OpenCode format: path/file:10-20"
@@ -28,23 +39,29 @@
         }
       }
     },
-    "commands": [{
-      "command": "context-link.copyContext",
-      "title": "Copy Context Link"
-    }],
-    "menus": {
-      "editor/context": [{
+    "commands": [
+      {
         "command": "context-link.copyContext",
-        "when": "editorTextFocus",
-        "group": "9_cutcopypaste"
-      }]
+        "title": "Copy Context Link"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "context-link.copyContext",
+          "when": "editorTextFocus",
+          "group": "9_cutcopypaste"
+        }
+      ]
     },
-    "keybindings": [{
-      "command": "context-link.copyContext",
-      "key": "ctrl+alt+u",
-      "mac": "cmd+alt+u",
-      "when": "editorTextFocus"
-    }]
+    "keybindings": [
+      {
+        "command": "context-link.copyContext",
+        "key": "ctrl+alt+u",
+        "mac": "cmd+alt+u",
+        "when": "editorTextFocus"
+      }
+    ]
   },
   "scripts": {
     "lint": "eslint .",
@@ -52,11 +69,11 @@
     "test": "vscode-test"
   },
   "devDependencies": {
-    "@types/vscode": "^1.109.0",
     "@types/mocha": "^10.0.10",
     "@types/node": "22.x",
-    "eslint": "^9.39.1",
+    "@types/vscode": "^1.109.0",
     "@vscode/test-cli": "^0.0.12",
-    "@vscode/test-electron": "^2.5.2"
+    "@vscode/test-electron": "^2.5.2",
+    "eslint": "^9.39.1"
   }
 }
