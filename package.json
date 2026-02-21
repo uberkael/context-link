@@ -13,8 +13,16 @@
   "main": "./extension.js",
   "contributes": {
     "commands": [{
-      "command": "context-link.helloWorld",
-      "title": "Hello World"
+      "command": "context-link.copyContext",
+      "title": "Copy Context Link"
+    }],
+    "menus": {
+      "editor/context": [{
+        "command": "context-link.copyContext",
+        "when": "editorTextFocus",
+        "group": "9_cutcopypaste"
+      }]
+    },
     }]
   },
   "scripts": {
