@@ -1,8 +1,9 @@
-# Context Link
+# Context Link (VSCode Extension)
 
 ![Context Link Icon](icon.png)
 
-Copy file paths with line references to share code context with AI assistants like Claude and OpenCode.
+Simple VSCode extension to:
+Copy to the clipboard **file paths with line references** to use as context with AI assistants like **Claude**,  **OpenCode** etc.
 
 ## Features
 
