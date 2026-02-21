@@ -25,18 +25,11 @@ function activate(context) {
 
 		if (selection.isEmpty) {
 			contextLink = `@${relativePath}`;
-		} else if (format === 'opencode') {
-			if (startLine === endLine) {
-				contextLink = `${relativePath}:${startLine}`;
-			} else {
-				contextLink = `${relativePath}:${startLine}-${endLine}`;
-			}
 		} else {
-			if (startLine === endLine) {
-				contextLink = `@${relativePath}#L${startLine}`;
-			} else {
-				contextLink = `@${relativePath}#L${startLine}-${endLine}`;
-			}
+			const lineRef = startLine === endLine ? `${startLine}` : `${startLine}-${endLine}`;
+			contextLink = format === 'opencode'
+				? `${relativePath}:${lineRef}`
+				: `@${relativePath}#L${lineRef}`;
 		}
 
 		await vscode.env.clipboard.writeText(contextLink);
