@@ -37,6 +37,9 @@ This extension contributes the following settings:
   - `claude` (default): Claude format with `@` prefix and `#L` for lines
   - `opencode`: OpenCode format with `:` for line references
 - `contextLink.showNotification`: Show a notification when the context link is copied (default: `false`)
+- `contextLink.pathType`: Path type for the context link
+  - `relative` (default): Relative path from workspace root
+  - `absolute`: Absolute file system path
 
 ## Keyboard Shortcuts
 
@@ -59,6 +62,10 @@ Check the error handling in @src/utils/parser#L45-60
 The AI assistant will understand the file path and line references, making it easier to discuss specific code sections.
 
 ## Release Notes
+
+### 0.2.2
+
+- Added `pathType` setting to choose between relative and absolute paths
 
 ### 0.2.0
 

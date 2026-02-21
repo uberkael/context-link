@@ -20,17 +20,21 @@ function activate(context) {
 		const startLine = selection.start.line + 1;
 		const endLine = selection.end.line + 1;
 
-		const relativePath = vscode.workspace.asRelativePath(document.uri);
+		const pathType = config.get('pathType') || 'relative';
+		const filePath = pathType === 'absolute'
+			? document.uri.fsPath
+			: vscode.workspace.asRelativePath(document.uri);
 
 		let contextLink;
 
 		if (selection.isEmpty) {
-			contextLink = `@${relativePath}`;
+			contextLink = `@${filePath}`;
 		} else {
+			/** @type {string} */
 			const lineRef = startLine === endLine ? `${startLine}` : `${startLine}-${endLine}`;
 			contextLink = format === 'opencode'
-				? `${relativePath}:${lineRef}`
-				: `@${relativePath}#L${lineRef}`;
+				? `${filePath}:${lineRef}`
+				: `@${filePath}#L${lineRef}`;
 		}
 
 		await vscode.env.clipboard.writeText(contextLink);
