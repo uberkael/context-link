@@ -13,6 +13,8 @@ function activate(context) {
 
 		const document = editor.document;
 		const selection = editor.selection;
+		const config = vscode.workspace.getConfiguration('contextLink');
+		const format = config.get('format') || 'claude';
 		
 		const startLine = selection.start.line + 1;
 		const endLine = selection.end.line + 1;
@@ -20,12 +22,23 @@ function activate(context) {
 		const relativePath = vscode.workspace.asRelativePath(document.uri);
 		
 		let contextLink;
-		if (selection.isEmpty) {
-			contextLink = `@${relativePath}#${startLine}`;
-		} else if (startLine === endLine) {
-			contextLink = `@${relativePath}#${startLine}`;
+		
+		if (format === 'opencode') {
+			if (selection.isEmpty) {
+				contextLink = `${relativePath}:${startLine}`;
+			} else if (startLine === endLine) {
+				contextLink = `${relativePath}:${startLine}`;
+			} else {
+				contextLink = `${relativePath}:${startLine}-${endLine}`;
+			}
 		} else {
-			contextLink = `@${relativePath}#${startLine}-${endLine}`;
+			if (selection.isEmpty) {
+				contextLink = `@${relativePath}#L${startLine}`;
+			} else if (startLine === endLine) {
+				contextLink = `@${relativePath}#L${startLine}`;
+			} else {
+				contextLink = `@${relativePath}#L${startLine}-${endLine}`;
+			}
 		}
 		
 		await vscode.env.clipboard.writeText(contextLink);
