@@ -1,5 +1,7 @@
 # Context Link
 
+![Context Link Icon](icon.png)
+
 Copy file paths with line references to share code context with AI assistants like Claude and OpenCode.
 
 ## Features
