@@ -31,15 +31,11 @@ Copy to the clipboard **file paths with line references** to use as context with
 
 ## Extension Settings
 
-This extension contributes the following settings:
-
-- `contextLink.format`: Output format for the context link
-  - `claude` (default): Claude format with `@` prefix and `#L` for lines
-  - `opencode`: OpenCode format with `:` for line references
-- `contextLink.showNotification`: Show a notification when the context link is copied (default: `false`)
-- `contextLink.pathType`: Path type for the context link
-  - `relative` (default): Relative path from workspace root
-  - `absolute`: Absolute file system path
+| Setting                         | Default   | Values                | Description                        |
+|-------------------------------- | --------- | --------------------  | ---------------------------------- |
+| `contextLink.format`            | `claude`  | `claude`, `opencode`  | Output format for the context link |
+| `contextLink.showNotification`  | `false`   | `true`, `false`       | Show a notification when copied    |
+| `contextLink.pathType`          | `absolute`| `relative`, `absolute`| Path type for the context link     |
 
 ## Keyboard Shortcuts
 
