@@ -4,7 +4,7 @@
   "displayName": "Context Link",
   "description": "Copy file path with line references in Claude (@path/file#L10-20) or OpenCode (path/file:10-20) format for sharing code context with AI assistants",
   "icon": "icon.png",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "repository": {
     "type": "git",
     "url": "https://github.com/uberkael/context-link.git"
@@ -54,7 +54,7 @@
         },
         "contextLink.pathType": {
           "type": "string",
-          "default": "relative",
+          "default": "absolute",
           "enum": [
             "relative",
             "absolute"

@@ -4,6 +4,12 @@ All notable changes to the "context-link" extension will be documented in this f
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [0.2.4]
+
+### Changed
+
+- Default `pathType` changed from `relative` to `absolute`
+
 ## [0.2.2]
 
 ### Added
@@ -31,6 +37,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 - Support for Claude and OpenCode formats
 - Context menu integration
 
+[0.2.4]: https://github.com/uberkael/context-link/compare/v0.2.2...v0.2.4
 [0.2.2]: https://github.com/uberkael/context-link/compare/v0.2.0...v0.2.2
 [0.2.0]: https://github.com/uberkael/context-link/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/uberkael/context-link/compare/v0.0.1...v0.1.0
