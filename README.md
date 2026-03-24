@@ -24,18 +24,18 @@ Copy to the clipboard **file paths with line references** to use as context with
 
 ### Output Formats
 
-| Format       | No Selection  | Single Line        | Line Range            |
-|--------------|---------------|--------------------|-----------------------|
-| **Claude**   | `@path/file`  | `@path/file#L10`   | `@path/file#L10-20`   |
-| **OpenCode** | `@path/file`  | `path/file:10`     | `path/file:10-20`     |
+| Format       | No Selection | Single Line      | Line Range          |
+| ------------ | ------------ | ---------------- | ------------------- |
+| **Claude**   | `@path/file` | `@path/file#L10` | `@path/file#L10-20` |
+| **OpenCode** | `@path/file` | `path/file:10`   | `path/file:10-20`   |
 
 ## Extension Settings
 
-| Setting                         | Default   | Values                | Description                        |
-|-------------------------------- | --------- | --------------------  | ---------------------------------- |
-| `contextLink.format`            | `claude`  | `claude`, `opencode`  | Output format for the context link (machine-specific, not synchronized) |
-| `contextLink.showNotification`  | `false`   | `true`, `false`       | Show a notification when copied    |
-| `contextLink.pathType`          | `absolute`| `relative`, `absolute`| Path type for the context link     |
+| Setting                        | Default   | Values                 | Description                                           |
+|------------------------------- | --------- | ---------------------  | ----------------------------------------------------- |
+| `contextLink.format`           | `claude`  | `claude`, `opencode`   | Output format for the context link (not synchronized) |
+| `contextLink.showNotification` | `false`   | `true`, `false`        | Show a notification when copied                       |
+| `contextLink.pathType`         | `absolute`| `relative`, `absolute` | Path type for the context link                        |
 
 > **Note:** The `format` setting is machine-specific and will not be synchronized across devices when using VS Code Settings Sync.
 

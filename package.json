@@ -4,7 +4,7 @@
   "displayName": "Context Link",
   "description": "Copy file path with line references in Claude (@path/file#L10-20) or OpenCode (path/file:10-20) format for sharing code context with AI assistants",
   "icon": "icon.png",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "repository": {
     "type": "git",
     "url": "https://github.com/uberkael/context-link.git"
@@ -99,10 +99,10 @@
   },
   "devDependencies": {
     "@types/mocha": "^10.0.10",
-    "@types/node": "22.x",
+    "@types/node": "25.5.0",
     "@types/vscode": "^1.109.0",
     "@vscode/test-cli": "^0.0.12",
     "@vscode/test-electron": "^2.5.2",
-    "eslint": "^9.39.1"
+    "eslint": "^10.1.0"
   }
 }
