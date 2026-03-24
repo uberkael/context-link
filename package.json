@@ -36,6 +36,7 @@
       "properties": {
         "contextLink.format": {
           "type": "string",
+          "scope": "machine",
           "default": "claude",
           "enum": [
             "claude",
