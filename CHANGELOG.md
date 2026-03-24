@@ -4,6 +4,13 @@ All notable changes to the "context-link" extension will be documented in this f
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [0.2.5]
+
+### Changed
+
+- `format` setting is now machine-specific and will not be synchronized across devices with VS Code Settings Sync
+- Updated README to document machine-specific format setting
+
 ## [0.2.4]
 
 ### Changed
@@ -37,6 +44,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 - Support for Claude and OpenCode formats
 - Context menu integration
 
+[0.2.5]: https://github.com/uberkael/context-link/compare/v0.2.4...v0.2.5
 [0.2.4]: https://github.com/uberkael/context-link/compare/v0.2.2...v0.2.4
 [0.2.2]: https://github.com/uberkael/context-link/compare/v0.2.0...v0.2.2
 [0.2.0]: https://github.com/uberkael/context-link/compare/v0.1.0...v0.2.0
