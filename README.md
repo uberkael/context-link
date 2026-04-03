@@ -33,11 +33,11 @@ Copy to the clipboard **file paths with line references** to use as context with
 
 | Setting                        | Default   | Values                 | Description                                           |
 |------------------------------- | --------- | ---------------------  | ----------------------------------------------------- |
-| `contextLink.format`           | `claude`  | `claude`, `opencode`   | Output format for the context link (not synchronized) |
-| `contextLink.showNotification` | `false`   | `true`, `false`        | Show a notification when copied                       |
-| `contextLink.pathType`         | `absolute`| `relative`, `absolute` | Path type for the context link                        |
+| `contextLink.format`           | `claude`   | `claude`, `opencode`   | Output format for the context link (machine-specific) |
+| `contextLink.showNotification` | `false`    | `true`, `false`        | Show a notification when copied                       |
+| `contextLink.pathType`         | `absolute` | `relative`, `absolute` | Path type for the context link (machine-specific)     |
 
-> **Note:** The `format` setting is machine-specific and will not be synchronized across devices when using VS Code Settings Sync.
+> **Note:** The `format` and `pathType` settings are machine-specific and will not be synchronized across devices when using VS Code Settings Sync.
 
 ## Keyboard Shortcuts
 
