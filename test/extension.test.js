@@ -1,15 +1,124 @@
 const assert = require('assert');
-
-// You can import and use all API from the 'vscode' module
-// as well as import your extension to test it
 const vscode = require('vscode');
-// const myExtension = require('../extension');
+const { buildContextLink } = require('../extension');
 
 suite('Extension Test Suite', () => {
 	vscode.window.showInformationMessage('Start all tests.');
 
-	test('Sample test', () => {
-		assert.strictEqual(-1, [1, 2, 3].indexOf(5));
-		assert.strictEqual(-1, [1, 2, 3].indexOf(0));
+	test('builds OpenCode relative path without selection', () => {
+		const selection = {
+			start: { line: 371 },
+			end: { line: 371 },
+			isEmpty: true
+		};
+
+		assert.strictEqual(
+			buildContextLink('data/cache.py', selection, 'opencode'),
+			'@data/cache.py'
+		);
+	});
+
+	test('builds OpenCode relative path for single selected line', () => {
+		const selection = {
+			start: { line: 371 },
+			end: { line: 371 },
+			isEmpty: false
+		};
+
+		assert.strictEqual(
+			buildContextLink('data/cache.py', selection, 'opencode'),
+			'@data/cache.py#372'
+		);
+	});
+
+	test('builds OpenCode relative path for multi-line selection', () => {
+		const selection = {
+			start: { line: 365 },
+			end: { line: 371 },
+			isEmpty: false
+		};
+
+		assert.strictEqual(
+			buildContextLink('data/cache.py', selection, 'opencode'),
+			'@data/cache.py#366-372'
+		);
+	});
+
+	test('builds OpenCode absolute path without selection', () => {
+		const selection = {
+			start: { line: 371 },
+			end: { line: 371 },
+			isEmpty: true
+		};
+
+		assert.strictEqual(
+			buildContextLink('/workspace/data/cache.py', selection, 'opencode'),
+			'@/workspace/data/cache.py'
+		);
+	});
+
+	test('builds OpenCode absolute path for single selected line', () => {
+		const selection = {
+			start: { line: 371 },
+			end: { line: 371 },
+			isEmpty: false
+		};
+
+		assert.strictEqual(
+			buildContextLink('/workspace/data/cache.py', selection, 'opencode'),
+			'@/workspace/data/cache.py#372'
+		);
+	});
+
+	test('builds OpenCode absolute path for multi-line selection', () => {
+		const selection = {
+			start: { line: 365 },
+			end: { line: 371 },
+			isEmpty: false
+		};
+
+		assert.strictEqual(
+			buildContextLink('/workspace/data/cache.py', selection, 'opencode'),
+			'@/workspace/data/cache.py#366-372'
+		);
+		});
+
+	test('builds Claude path without selection', () => {
+		const selection = {
+			start: { line: 371 },
+			end: { line: 371 },
+			isEmpty: true
+		};
+
+		assert.strictEqual(
+			buildContextLink('data/cache.py', selection, 'claude'),
+			'@data/cache.py'
+		);
+	});
+
+	test('builds Claude path for single selected line', () => {
+		const selection = {
+			start: { line: 371 },
+			end: { line: 371 },
+			isEmpty: false
+		};
+
+		assert.strictEqual(
+			buildContextLink('data/cache.py', selection, 'claude'),
+			'@data/cache.py#L372'
+		);
+	});
+
+	test('builds Claude path for multi-line selection', () => {
+		const selection = {
+			start: { line: 365 },
+			end: { line: 371 },
+			isEmpty: false
+		};
+
+		assert.strictEqual(
+			buildContextLink('data/cache.py', selection, 'claude'),
+			'@data/cache.py#L366-372'
+		);
 	});
 });
