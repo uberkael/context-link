@@ -1,5 +1,19 @@
 const vscode = require('vscode');
 
+function buildContextLink(filePath, selection, format) {
+	const startLine = selection.start.line + 1;
+	const endLine = selection.end.line + 1;
+
+	if (selection.isEmpty) {
+		return `@${filePath}`;
+	}
+
+	const lineRef = startLine === endLine ? `${startLine}` : `${startLine}-${endLine}`;
+	return format === 'opencode'
+		? `@${filePath}#${lineRef}`
+		: `@${filePath}#L${lineRef}`;
+}
+
 function activate(context) {
 	console.log('Context Link extension is now active');
 
@@ -17,25 +31,12 @@ function activate(context) {
 		const format = config.get('format') || 'claude';
 		const showNotification = config.get('showNotification') || false;
 
-		const startLine = selection.start.line + 1;
-		const endLine = selection.end.line + 1;
-
 		const pathType = config.get('pathType') || 'relative';
 		const filePath = pathType === 'absolute'
 			? document.uri.fsPath
 			: vscode.workspace.asRelativePath(document.uri);
 
-		let contextLink;
-
-		if (selection.isEmpty) {
-			contextLink = `@${filePath}`;
-		} else {
-			/** @type {string} */
-			const lineRef = startLine === endLine ? `${startLine}` : `${startLine}-${endLine}`;
-			contextLink = format === 'opencode'
-				? `${filePath}:${lineRef}`
-				: `@${filePath}#L${lineRef}`;
-		}
+		const contextLink = buildContextLink(filePath, selection, format);
 
 		await vscode.env.clipboard.writeText(contextLink);
 		if (showNotification) {
@@ -49,6 +50,7 @@ function activate(context) {
 function deactivate() {}
 
 module.exports = {
+	buildContextLink,
 	activate,
 	deactivate
 }
