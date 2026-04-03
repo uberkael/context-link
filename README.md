@@ -27,7 +27,7 @@ Copy to the clipboard **file paths with line references** to use as context with
 | Format       | No Selection | Single Line      | Line Range          |
 | ------------ | ------------ | ---------------- | ------------------- |
 | **Claude**   | `@path/file` | `@path/file#L10` | `@path/file#L10-20` |
-| **OpenCode** | `@path/file` | `path/file:10`   | `path/file:10-20`   |
+| **OpenCode** | `@path/file` | `@path/file#10`  | `@path/file#10-20`  |
 
 ## Extension Settings
 

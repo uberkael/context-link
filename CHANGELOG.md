@@ -4,6 +4,12 @@ All notable changes to the "context-link" extension will be documented in this f
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [0.2.8]
+
+### Fixed
+
+- Fixed OpenCode output to preserve its `@path/file#10-20` line reference format and keep it distinct from Claude's `@path/file#L10-20`
+
 ## [0.2.7]
 
 ### Changed
@@ -57,6 +63,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 - Support for Claude and OpenCode formats
 - Context menu integration
 
+[0.2.8]: https://github.com/uberkael/context-link/compare/v0.2.7...v0.2.8
 [0.2.7]: https://github.com/uberkael/context-link/compare/v0.2.6...v0.2.7
 [0.2.6]: https://github.com/uberkael/context-link/compare/v0.2.5...v0.2.6
 [0.2.5]: https://github.com/uberkael/context-link/compare/v0.2.4...v0.2.5
